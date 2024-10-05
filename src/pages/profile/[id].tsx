@@ -1,4 +1,4 @@
-import { FadeIn, LeftToRight, UpToStart } from '@/shared/animations';
+import { LeftToRight, UpToStart } from '@/shared/animations';
 import useStorage from '@/store/storage';
 import { Heart, Star } from 'lucide-react';
 import React, { useEffect } from 'react';
@@ -20,7 +20,7 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <FadeIn className='w-[90%] h-[80vh] flex flex-col items-center gap-5 m-auto'>
+    <div className='w-[90%] h-[80vh] flex flex-col items-center gap-5 m-auto'>
       <UpToStart delay={1}>
         <img
           className='rounded-full object-cover'
@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
           <span>1000</span>
         </div>
       </LeftToRight>
-    </FadeIn>
+    </div>
   );
 };
 
