@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Menu, Star, X } from 'lucide-react';
+import { Menu, Star, X } from 'lucide-react';
 import { useAnimate } from 'framer-motion';
 
 import UpToStart from '@/shared/animations/UpToStart';
@@ -42,7 +42,7 @@ const Main: React.FC = () => {
               ref={scopeClose}
               onClick={() => handleTap(scopeClose, animateClose)}
             >
-              <X size={30} color='#000' />
+              <X size={40} color='#000' />
             </UpToStart>
 
             <UpToStart
@@ -51,7 +51,7 @@ const Main: React.FC = () => {
               ref={scopeStar}
               onClick={() => handleTap(scopeStar, animateStar)}
             >
-              <Star size={30} color='orange' />
+              <Star size={40} color='orange' />
             </UpToStart>
 
             <UpToStart
@@ -60,7 +60,8 @@ const Main: React.FC = () => {
               ref={scopeHeart}
               onClick={() => handleTap(scopeHeart, animateHeart)}
             >
-              <Heart size={30} color='#ff9aaa' />
+              {/* <Heart size={35} color='#ff9aaa' /> */}
+              <img src='/heart.png' width={40} alt='heart' />
             </UpToStart>
           </div>
         </div>
