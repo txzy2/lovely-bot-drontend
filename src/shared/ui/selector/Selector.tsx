@@ -35,7 +35,7 @@ const Selector: React.FC = () => {
       name: 'user',
       icon: <UserRound size={35} color='#1c1c1c' />,
       delay: 1.7,
-      link: user ? `/profile/${user?.chat_id || '123'}` : '/'
+      link: user && user.chat_id ? `/profile/${user.chat_id}` : '/'
     }
   ];
 
@@ -45,11 +45,11 @@ const Selector: React.FC = () => {
 
   return (
     <div className='h-[10%] w-[95%] flex items-center justify-between m-auto'>
-      {selectorOptions.map(({ name, icon, delay }) => (
+      {selectorOptions.map(({ name, icon, delay, link }) => (
         <LeftToRight key={name} delay={delay}>
           <Hover>
             <Link
-              to={selectorOptions.find(option => option.name === name)?.link}
+              to={link}
               className={`m-w-[60px] h-[50px] flex items-center justify-center py-1 px-3 rounded-xl transition-all duration-300 ${selector === name ? 'card bg-[#fffdd0]' : 'bg-transparent'
                 }`}
               onClick={() => selectorHandler(name as 'top' | 'search' | 'user')}
