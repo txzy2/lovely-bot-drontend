@@ -26,7 +26,10 @@ const Main: React.FC = () => {
   };
 
   return (
-    <UpToStart className='h-[85vh] flex flex-col items-center' delay={0.5}>
+    <UpToStart
+      className='h-[85vh] flex flex-col items-center gap-5'
+      delay={0.5}
+    >
       <div className='h-[90%] w-[95%] relative card'>
         <div className='w-[90%] absolute top-5 left-5 flex items-center justify-between'>
           <div className='flex items-center gap-1 text-[30px]'>
@@ -73,9 +76,9 @@ const Main: React.FC = () => {
             </UpToStart>
           </div>
         </div>
-
-        <Selector />
       </div>
+
+      <Selector />
     </UpToStart>
   );
 };
