@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Header } from '@/components';
 import { Loader, Selector } from '@/shared/ui';
-import { FadeIn, Hover } from '@/shared/animations';
+import { FadeIn } from '@/shared/animations';
 import { UseTg } from '@/shared/hooks/useTg';
 import useStorage from '@/store/storage';
 

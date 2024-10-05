@@ -1,3 +1,4 @@
+import { FadeIn } from '@/shared/animations';
 import useStorage from '@/store/storage';
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -11,12 +12,12 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <div className='w-[90%] h-[80vh] flex flex-col items-center justify-center m-auto'>
+    <FadeIn className='w-[90%] h-[80vh] flex flex-col items-center justify-center m-auto'>
       <h1>Профиль пользователя</h1>
       <p>Chat ID: {user.chat_id}</p>
       <p>Имя: {user.first_name}</p>
       <p>Username: {user.username}</p>
-    </div>
+    </FadeIn>
   );
 };
 
