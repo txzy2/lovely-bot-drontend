@@ -1,15 +1,43 @@
 import React, { useState } from 'react';
 import { Hover, LeftToRight } from '@/shared/animations';
 import { Search, Trophy, UserRound } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import useStorage from '@/store/storage';
 
-const selectorOptions = [
-  { name: 'top', icon: <Trophy size={35} color='#1c1c1c' />, delay: 1 },
-  { name: 'search', icon: <Search size={35} color='#1c1c1c' />, delay: 1.3 },
-  { name: 'user', icon: <UserRound size={35} color='#1c1c1c' />, delay: 1.7 }
-];
+interface SelectorOption {
+  name: 'top' | 'search' | 'user';
+  icon: JSX.Element;
+  delay: number;
+  link: string;
+}
 
 const Selector: React.FC = () => {
   const [selector, setSelector] = useState<'search' | 'top' | 'user'>('search');
+
+  const { user } = useStorage();
+
+  console.log(user);
+
+  const selectorOptions: SelectorOption[] = [
+    {
+      name: 'top',
+      icon: <Trophy size={35} color='#1c1c1c' />,
+      delay: 1,
+      link: '/top'
+    },
+    {
+      name: 'search',
+      icon: <Search size={35} color='#1c1c1c' />,
+      delay: 1.3,
+      link: '/'
+    },
+    {
+      name: 'user',
+      icon: <UserRound size={35} color='#1c1c1c' />,
+      delay: 1.7,
+      link: user ? `/profile/${user?.chat_id || '123'}` : '/'
+    }
+  ];
 
   const selectorHandler = (name: 'top' | 'search' | 'user') => {
     setSelector(name);
@@ -20,13 +48,14 @@ const Selector: React.FC = () => {
       {selectorOptions.map(({ name, icon, delay }) => (
         <LeftToRight key={name} delay={delay}>
           <Hover>
-            <div
+            <Link
+              to={selectorOptions.find(option => option.name === name)?.link}
               className={`m-w-[60px] h-[50px] flex items-center justify-center py-1 px-3 rounded-xl transition-all duration-300 ${selector === name ? 'card bg-[#fffdd0]' : 'bg-transparent'
                 }`}
               onClick={() => selectorHandler(name as 'top' | 'search' | 'user')}
             >
               {icon}
-            </div>
+            </Link>
           </Hover>
         </LeftToRight>
       ))}

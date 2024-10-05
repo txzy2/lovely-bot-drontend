@@ -1,9 +1,8 @@
 import React from 'react';
 import { Heart, Menu, Star, X } from 'lucide-react';
+import { useAnimate } from 'framer-motion';
 
 import UpToStart from '@/shared/animations/UpToStart';
-import { Selector } from '@/shared/ui';
-import { useAnimate } from 'framer-motion';
 
 const Main: React.FC = () => {
   const [scopeClose, animateClose] = useAnimate();
@@ -18,11 +17,8 @@ const Main: React.FC = () => {
   };
 
   return (
-    <UpToStart
-      className='h-[85vh] flex flex-col items-center gap-5'
-      delay={0.5}
-    >
-      <div className='h-[90%] w-[95%] relative card'>
+    <UpToStart className='h-[80vh] flex flex-col items-center' delay={0.5}>
+      <div className='h-[95%] w-[95%] relative card'>
         <div className='w-[90%] absolute top-5 left-5 flex items-center justify-between'>
           <div className='flex items-center gap-1 text-[30px]'>
             <Star size={25} color='orange' />
@@ -69,8 +65,6 @@ const Main: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <Selector />
     </UpToStart>
   );
 };

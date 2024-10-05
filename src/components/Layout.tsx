@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Header } from '@/components';
-import { Loader } from '@/shared/ui';
+import { Loader, Selector } from '@/shared/ui';
 import { FadeIn, Hover } from '@/shared/animations';
 import { UseTg } from '@/shared/hooks/useTg';
+import useStorage from '@/store/storage';
 
 const Layout: React.FC = () => {
+  const { tg, user } = UseTg();
+  const { setUser } = useStorage();
   const [loader, setLoader] = useState(true);
-
-  const { tg } = UseTg();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -19,8 +20,14 @@ const Layout: React.FC = () => {
     tg.ready();
     tg.expand();
 
+    setUser({
+      chat_id: user?.chat_id || '',
+      first_name: user?.first_name || '',
+      username: user?.username || ''
+    });
+
     return () => clearTimeout(timeout);
-  }, [tg]);
+  }, [tg, user, setUser]);
 
   if (loader) {
     return (
@@ -39,6 +46,7 @@ const Layout: React.FC = () => {
     <>
       <Header />
       <Outlet />
+      <Selector />
       <footer className='h-[5vh] text-[13px] flex items-center justify-center'>
         <code>
           <Hover>
