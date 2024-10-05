@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { Heart, Menu, Search, Star, Trophy, UserRound, X } from 'lucide-react';
+import { Heart, Menu, Star, X } from 'lucide-react';
 
 import { UseTg } from '@/shared/hooks/useTg';
-import { Hover, LeftToRight } from '@/shared/animations';
 import UpToStart from '@/shared/animations/UpToStart';
+import { Selector } from '@/shared/ui';
+import { useAnimate } from 'framer-motion';
 
 const Main: React.FC = () => {
   const { tg } = UseTg();
@@ -13,16 +14,24 @@ const Main: React.FC = () => {
     tg.expand();
   }, [tg]);
 
+  const [scopeClose, animateClose] = useAnimate();
+  const [scopeStar, animateStar] = useAnimate();
+  const [scopeHeart, animateHeart] = useAnimate();
+
+  const handleTap = (scope: any, animate: any) => {
+    animate(scope.current, {
+      scale: [1, 1.2, 1],
+      transition: { duration: 0.1, ease: 'easeInOut' }
+    });
+  };
+
   return (
-    <UpToStart
-      className='h-[85vh] flex flex-col  items-center gap-2'
-      delay={0.5}
-    >
-      <div className='h-[90%] w-[95%] relative'>
+    <UpToStart className='h-[85vh] flex flex-col items-center' delay={0.5}>
+      <div className='h-[90%] w-[95%] relative card'>
         <div className='w-[90%] absolute top-5 left-5 flex items-center justify-between'>
           <div className='flex items-center gap-1 text-[30px]'>
-            <Star size={20} color='orange' />
-            <span>Anton, 23</span>
+            <Star size={25} color='orange' />
+            <span className='font-bold'>Anton, 23</span>
           </div>
 
           <Menu size={30} color='black' />
@@ -39,6 +48,8 @@ const Main: React.FC = () => {
             <UpToStart
               delay={1}
               className='cursor-pointer bg-[#fffdd0] p-2 rounded-full'
+              ref={scopeClose}
+              onClick={() => handleTap(scopeClose, animateClose)}
             >
               <X size={30} color='#000' />
             </UpToStart>
@@ -46,6 +57,8 @@ const Main: React.FC = () => {
             <UpToStart
               delay={1.2}
               className='cursor-pointer bg-[#fffdd0] p-2 rounded-full'
+              ref={scopeStar}
+              onClick={() => handleTap(scopeStar, animateStar)}
             >
               <Star size={30} color='orange' />
             </UpToStart>
@@ -53,31 +66,15 @@ const Main: React.FC = () => {
             <UpToStart
               delay={1.4}
               className='cursor-pointer bg-[#fffdd0] p-2 rounded-full'
+              ref={scopeHeart}
+              onClick={() => handleTap(scopeHeart, animateHeart)}
             >
               <Heart size={30} color='#ff9aaa' />
             </UpToStart>
           </div>
         </div>
-      </div>
 
-      <div className='h-[10%] w-[85%] flex items-center justify-between'>
-        <LeftToRight delay={1}>
-          <Hover>
-            <Trophy size={35} />
-          </Hover>
-        </LeftToRight>
-
-        <LeftToRight delay={1.3}>
-          <Hover className='bg-[#fffdd0] py-1 px-3 rounded-xl'>
-            <Search size={35} color='#1c1c1c' />
-          </Hover>
-        </LeftToRight>
-
-        <LeftToRight delay={1.7}>
-          <Hover>
-            <UserRound size={35} />
-          </Hover>
-        </LeftToRight>
+        <Selector />
       </div>
     </UpToStart>
   );

@@ -1,21 +1,28 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { forwardRef } from 'react';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
-const UpToStart: React.FC<{
+interface UpToStartProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
   delay?: number;
-  className?: string;
-}> = ({ children, delay = 1.5, className }) => {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+}
+
+const UpToStart = forwardRef<HTMLDivElement, UpToStartProps>(
+  ({ children, delay = 1.5, className, ...props }, ref) => {
+    return (
+      <motion.div
+        ref={ref}
+        className={className}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay }}
+        {...props}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+);
+
+UpToStart.displayName = 'UpToStart';
 
 export default UpToStart;
