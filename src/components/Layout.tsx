@@ -21,9 +21,9 @@ const Layout: React.FC = () => {
     tg.expand();
 
     setUser({
-      chat_id: user?.chat_id || '',
-      first_name: user?.first_name || '',
-      username: user?.username || ''
+      chat_id: user?.chat_id || '12345',
+      first_name: user?.first_name || 'kamaeff',
+      username: user?.username || 'kamaeff'
     });
 
     return () => clearTimeout(timeout);
@@ -46,15 +46,8 @@ const Layout: React.FC = () => {
     <>
       <Header />
       <Outlet />
-      <Selector />
       <footer className='h-[5vh] text-[13px] flex items-center justify-center'>
-        <code>
-          <Hover>
-            <a className='font-bold hover:underline' href='#' target='_blank'>
-              Условия пользования
-            </a>
-          </Hover>
-        </code>
+        <Selector />
       </footer>
     </>
   );

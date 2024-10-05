@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Hover, LeftToRight } from '@/shared/animations';
 import { Search, Trophy, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import useStorage from '@/store/storage';
-
-interface SelectorOption {
-  name: 'top' | 'search' | 'user';
-  icon: JSX.Element;
-  delay: number;
-  link: string;
-}
 
 const Selector: React.FC = () => {
   const [selector, setSelector] = useState<'search' | 'top' | 'user'>('search');
@@ -18,33 +11,36 @@ const Selector: React.FC = () => {
 
   console.log(user);
 
-  const selectorOptions: SelectorOption[] = [
-    {
-      name: 'top',
-      icon: <Trophy size={35} color='#1c1c1c' />,
-      delay: 1,
-      link: '/top'
-    },
-    {
-      name: 'search',
-      icon: <Search size={35} color='#1c1c1c' />,
-      delay: 1.3,
-      link: '/'
-    },
-    {
-      name: 'user',
-      icon: <UserRound size={35} color='#1c1c1c' />,
-      delay: 1.7,
-      link: user && user.chat_id ? `/profile/${user.chat_id}` : '/'
-    }
-  ];
+  const selectorOptions = useMemo(
+    () => [
+      {
+        name: 'top',
+        icon: <Trophy size={35} color='#1c1c1c' />,
+        delay: 1,
+        link: '/top'
+      },
+      {
+        name: 'search',
+        icon: <Search size={35} color='#1c1c1c' />,
+        delay: 1.3,
+        link: '/'
+      },
+      {
+        name: 'user',
+        icon: <UserRound size={35} color='#1c1c1c' />,
+        delay: 1.7,
+        link: user && user.chat_id ? `/profile/${user.chat_id}` : '/'
+      }
+    ],
+    [user]
+  );
 
   const selectorHandler = (name: 'top' | 'search' | 'user') => {
     setSelector(name);
   };
 
   return (
-    <div className='h-[10%] w-[95%] flex items-center justify-between m-auto'>
+    <div className='h-[10%] w-[95%] absolute bottom-5 flex items-center justify-between m-auto'>
       {selectorOptions.map(({ name, icon, delay, link }) => (
         <LeftToRight key={name} delay={delay}>
           <Hover>
