@@ -32,8 +32,8 @@ const Profile: React.FC = () => {
 
       <LeftToRight delay={1}>
         <div className='flex items-center gap-1'>
-          <Star size={35} color='orange' />{' '}
-          <span className='text-[40px]'>{user.first_name}, 23</span>
+          <Star size={35} color='orange' strokeWidth={2} />
+          <span className='text-[40px] font-bold'>{user.first_name}, 23</span>
         </div>
 
         <div className='flex items-center gap-1'>
