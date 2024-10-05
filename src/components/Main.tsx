@@ -12,7 +12,7 @@ const Main: React.FC = () => {
   return (
     <div className='h-[85vh] flex flex-col justify-center items-center gap-2'>
       Works
-      <div className=''>{user}</div>
+      <div className=''>{user?.first_name || 'username'}</div>
     </div>
   );
 };
