@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Heart, Search, Star, Trophy, UserRound, X } from 'lucide-react';
 
 import { UseTg } from '@/shared/hooks/useTg';
@@ -7,7 +6,7 @@ import { Hover } from '@/shared/animations';
 import UpToStart from '@/shared/animations/UpToStart';
 
 const Main: React.FC = () => {
-  const { tg, user } = UseTg();
+  const { tg } = UseTg();
 
   useEffect(() => {
     tg.ready();
