@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Heart, Menu, Star, X } from 'lucide-react';
 
-import { UseTg } from '@/shared/hooks/useTg';
 import UpToStart from '@/shared/animations/UpToStart';
 import { Selector } from '@/shared/ui';
 import { useAnimate } from 'framer-motion';
 
 const Main: React.FC = () => {
-  const { tg } = UseTg();
-
-  useEffect(() => {
-    tg.ready();
-    tg.expand();
-  }, [tg]);
-
   const [scopeClose, animateClose] = useAnimate();
   const [scopeStar, animateStar] = useAnimate();
   const [scopeHeart, animateHeart] = useAnimate();

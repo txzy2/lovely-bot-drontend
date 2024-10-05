@@ -4,17 +4,23 @@ import { Outlet } from 'react-router-dom';
 import { Header } from '@/components';
 import { Loader } from '@/shared/ui';
 import { FadeIn, Hover } from '@/shared/animations';
+import { UseTg } from '@/shared/hooks/useTg';
 
 const Layout: React.FC = () => {
   const [loader, setLoader] = useState(true);
+
+  const { tg } = UseTg();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoader(false);
     }, 4000);
 
+    tg.ready();
+    tg.expand();
+
     return () => clearTimeout(timeout);
-  }, []);
+  }, [tg]);
 
   if (loader) {
     return (
