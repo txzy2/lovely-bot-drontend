@@ -1,0 +1,29 @@
+@import './tailwind.css';
+@import 'vars';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Nunito', sans-serif;
+
+  background: $bg-sec;
+  color: $main-text-color;
+
+  transition:
+    background 1.5s ease-in-out,
+    color 1.5s ease-in-out;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
