@@ -4,9 +4,9 @@ import FadeIn from '@/shared/animations/FadeIn';
 
 function App() {
   return (
-    <FadeIn>
+    <>
       <Main />
-    </FadeIn>
+    </>
   );
 }
 
