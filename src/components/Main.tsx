@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Heart, Search, Star, Trophy, UserRound, X } from 'lucide-react';
+import { Heart, Menu, Search, Star, Trophy, UserRound, X } from 'lucide-react';
 
 import { UseTg } from '@/shared/hooks/useTg';
 import { Hover, LeftToRight } from '@/shared/animations';
@@ -19,6 +19,15 @@ const Main: React.FC = () => {
       delay={0.5}
     >
       <div className='h-[90%] w-[95%] relative'>
+        <div className='w-[90%] absolute top-5 left-5 flex items-center justify-between'>
+          <div className='flex items-center gap-1 text-[30px]'>
+            <Star size={20} color='orange' />
+            <span>Anton, 23</span>
+          </div>
+
+          <Menu size={30} color='black' />
+        </div>
+
         <img
           className='h-[100%] w-[100%] object-cover rounded-lg'
           src='/sample.jpg'

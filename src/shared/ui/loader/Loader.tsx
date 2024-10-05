@@ -1,7 +1,7 @@
 import React from 'react';
-import {Loader} from 'lucide-react';
+import { Loader } from 'lucide-react';
 
-import {FadeIn, Hover} from '@/shared/animations';
+import { FadeIn } from '@/shared/animations';
 
 interface LoaderProps {
   iconSize?: number;
@@ -25,7 +25,7 @@ const LoaderComponent: React.FC<LoaderProps> = props => {
             <h3
               className={`text-[${props.title.size ? props.title.size : 16}px] `}
             >
-              {props.title.text || 'Loading...'}
+              {props.title.text || ''}
             </h3>
           </FadeIn>
         )}
@@ -33,9 +33,9 @@ const LoaderComponent: React.FC<LoaderProps> = props => {
         {props.sub && (
           <FadeIn delay={2}>
             <a className='flex items-center' href='#'>
-              <Hover scale={1.05}>
-                <img src='/logo2.png' alt='logo' width={80} />
-              </Hover>
+              <img src='/logo.png' alt='logo' width={100} />
+
+              {/* <img src='heart.gif' width={40} alt='' /> */}
             </a>
           </FadeIn>
         )}

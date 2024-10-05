@@ -22,7 +22,7 @@ const Layout: React.FC = () => {
         <Loader
           className='h-screen flex items-center justify-center gap-1'
           iconSize={25}
-          title={{ need: true, text: 'Created by' }}
+          title={{ need: false }}
           sub={true}
         />
       </FadeIn>
