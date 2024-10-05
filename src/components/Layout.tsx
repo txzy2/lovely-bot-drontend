@@ -36,12 +36,8 @@ const Layout: React.FC = () => {
       <footer className='h-[5vh] text-[13px] flex items-center justify-center'>
         <code>
           <Hover>
-            <a
-              className='font-bold hover:underline'
-              href='https://github.com/txzy2/react-starter'
-              target='_blank'
-            >
-              Github
+            <a className='font-bold hover:underline' href='#' target='_blank'>
+              Условия пользования
             </a>
           </Hover>
         </code>
