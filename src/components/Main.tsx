@@ -1,22 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {UseTg} from '@/shared/hooks/useTg';
+import React, { useEffect } from 'react';
+import { UseTg } from '@/shared/hooks/useTg';
 
 const Main: React.FC = () => {
-  const {tg, user} = UseTg();
-
-  const [userState, setUserState] = useState(null);
+  const { tg, user } = UseTg();
 
   useEffect(() => {
     tg.ready();
     tg.expand();
-
-    setUserState(user);
-  }, [tg, user]);
+  }, [tg]);
 
   return (
     <div className='h-[85vh] flex flex-col justify-center items-center gap-2'>
       Works
-      <div className=''>{userState}</div>
+      <div className=''>{user}</div>
     </div>
   );
 };
