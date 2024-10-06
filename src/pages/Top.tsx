@@ -13,8 +13,8 @@ const Top: React.FC = () => {
   };
 
   return (
-    <FadeIn className="h-[75vh] flex bg-white flex-col items-center p-6 shadow-lg rounded-xl">
-      <div className="  w-full max-w-3xl p-6">
+    <FadeIn className="h-[75vh] flex  flex-col bg-white items-center p-6 shadow-lg rounded-xl">
+      <div className="w-full max-w-3xl p-6">
         {
           selectedGender === 'Парни' ? (
             <h2 className="text-[30px] text-black font-bold text-center">👨Парни</h2>
@@ -70,23 +70,25 @@ const Top: React.FC = () => {
         <div className="text-black mt-4 text-center">
           <div>Твоё место в рейтинге: <span className="font-bold">{Math.floor(Math.random() * 1000)}</span></div>
         </div>
-      </div>
 
-      <div className="w-[60%] flex items-center justify-center gap-5 bg-white text-black px-4 py-2 rounded-xl shadow-lg">
-        <p
-          onClick={() => handleToggle('Парни')}
-          className={`w-[50%] font-bold py-1 text-center rounded-xl cursor-pointer ${selectedGender === 'Парни' ? 'bg-yellow-500 text-white' : 'bg-transparent text-black'
-            }`}
-        >
-          Парни
-        </p>
-        <p
-          onClick={() => handleToggle('Девушки')}
-          className={`w-[50%] font-bold py-1 text-center rounded-xl cursor-pointer ${selectedGender === 'Девушки' ? 'bg-yellow-500 text-white' : 'bg-transparent text-black'
-            }`}
-        >
-          Девушки
-        </p>
+        <div className="w-[90%] flex items-center justify-center gap-5 m-auto bg-indigo-300 text-white px-4 py-2 rounded-xl shadow-lg">
+          <p
+            onClick={() => handleToggle('Парни')}
+            className={`w-[50%] font-bold py-1 text-center rounded-xl cursor-pointer ${selectedGender === 'Парни' ? 'bg-orange-500 text-black' : 'bg-transparent text-black'
+              }`}
+          >
+            Парни
+          </p>
+          <p
+            onClick={() => handleToggle('Девушки')}
+            className={`w-[50%] font-bold py-1 text-center rounded-xl cursor-pointer ${selectedGender === 'Девушки' ? 'bg-indigo-100 text-black' : 'bg-transparent text-black'
+              }`}
+          >
+            Девушки
+          </p>
+        </div>
+
+
       </div>
 
     </FadeIn>

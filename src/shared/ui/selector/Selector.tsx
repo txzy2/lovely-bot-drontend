@@ -35,7 +35,7 @@ const Selector: React.FC = () => {
         name: 'user',
         icon: <UserRound size={35} color='#1c1c1c' />,
         delay: 1.7,
-        link: user && user.chat_id ? `/profile/${user.chat_id}` : '/'
+        link: user && user?.chat_id ? `/profile/${user.chat_id}` : '/'
       }
     ],
     [user]
