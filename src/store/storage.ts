@@ -8,12 +8,24 @@ export type User = {
 
 type StorageState = {
   user: User | null;
+  guide: boolean;
   setUser: (user: User) => void;
+  setGuide: (guide: boolean) => void;
+};
+
+const getInitialGuideState = () => {
+  const storedGuideState = localStorage.getItem('guide');
+  return storedGuideState ? JSON.parse(storedGuideState) : false;
 };
 
 const useStorage = create<StorageState>(set => ({
   user: null,
-  setUser: (user: User) => set({ user })
+  guide: getInitialGuideState(),
+  setUser: (user: User) => set({ user }),
+  setGuide: (guide: boolean) => {
+    localStorage.setItem('guide', JSON.stringify(guide));
+    set({ guide });
+  },
 }));
 
 export default useStorage;

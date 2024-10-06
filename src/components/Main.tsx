@@ -19,7 +19,7 @@ const Main: React.FC = () => {
 
   return (
     <UpToStart className='h-[80vh] flex flex-col items-center' delay={0.5}>
-      <div className='h-[95%] w-[95%] relative card'>
+      <div className='h-[95%] w-[95%] relative card xl:w-[30%]'>
         <div className='w-[90%] absolute top-5 left-5 flex items-center justify-between'>
           <div className='flex items-center gap-1 text-[30px]'>
             <Star size={25} color='orange' />
@@ -31,7 +31,7 @@ const Main: React.FC = () => {
         </div>
 
         <img
-          className='h-[100%] w-[100%] object-cover rounded-lg'
+          className='h-[100%] w-[100%] object-cover rounded-lg '
           src='/sample.jpg'
           alt='card'
         />

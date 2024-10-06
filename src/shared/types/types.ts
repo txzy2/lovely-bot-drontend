@@ -5,3 +5,12 @@ export type TopDTO = {
   rank: number;
 }
 
+export type SelectorOption = {
+  name: 'top' | 'search' | 'user' | 'guide';
+  icon: React.ReactNode;
+  delay: number;
+  link: string;
+  title?: string;
+};
+
+

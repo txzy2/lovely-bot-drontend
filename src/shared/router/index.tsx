@@ -6,6 +6,7 @@ import NotFound from '@/pages/404';
 import About from '@/pages/About';
 import Profile from '@/pages/profile/[id]';
 import Top from '@/pages/Top';
+import Guide from '@/pages/Guide';
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: 'top',
         element: <Top />
+      },
+      {
+        path: 'guide',
+        element: <Guide />
       },
       {
         path: '*',

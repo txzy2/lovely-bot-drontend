@@ -1,16 +1,21 @@
 import { FadeIn } from "@/shared/animations";
 import { Medal, User } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { mockTopManData, mockTopWomanData } from '@/shared/mocks/constants';
 import { TopDTO } from "@/shared/types/types";
 
 const Top: React.FC = () => {
   const [selectedGender, setSelectedGender] = useState<string>('Парни');
+  const [rank, setRank] = useState<number>(0);
 
   const handleToggle = (gender: string) => {
     setSelectedGender(gender);
   };
+
+  useEffect(() => {
+    setRank(Math.floor(Math.random() * 1000));
+  }, []);
 
   return (
     <FadeIn className="h-[75vh] flex  flex-col bg-white items-center p-6 shadow-lg rounded-xl">
@@ -68,7 +73,7 @@ const Top: React.FC = () => {
         </div>
 
         <div className="text-black mt-4 text-center">
-          <div>Твоё место в рейтинге: <span className="font-bold">{Math.floor(Math.random() * 1000)}</span></div>
+          <div>Твоё место в рейтинге: <span className="font-bold">{rank}</span></div>
         </div>
 
         <div className="w-[90%] flex items-center justify-center gap-5 m-auto bg-indigo-300 text-white px-4 py-2 rounded-xl shadow-lg">
