@@ -72,7 +72,7 @@ const Top: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-[60%] absolute bottom-5 flex items-center justify-center gap-5 bg-white text-black px-4 py-2 rounded-xl shadow-lg">
+      <div className="w-[60%] flex items-center justify-center gap-5 bg-white text-black px-4 py-2 rounded-xl shadow-lg">
         <p
           onClick={() => handleToggle('Парни')}
           className={`w-[50%] font-bold py-1 text-center rounded-xl cursor-pointer ${selectedGender === 'Парни' ? 'bg-yellow-500 text-white' : 'bg-transparent text-black'
