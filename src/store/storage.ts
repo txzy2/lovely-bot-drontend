@@ -1,17 +1,6 @@
 import { create } from 'zustand';
 
-export type User = {
-  chat_id: string;
-  first_name: string;
-  username: string;
-};
-
-type StorageState = {
-  user: User | null;
-  guide: boolean;
-  setUser: (user: User) => void;
-  setGuide: (guide: boolean) => void;
-};
+import { User, StorageState } from '@/shared/types/types';
 
 const getInitialGuideState = () => {
   const storedGuideState = localStorage.getItem('guide');

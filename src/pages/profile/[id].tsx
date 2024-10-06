@@ -24,7 +24,7 @@ const Profile: React.FC = () => {
       <UpToStart delay={1} className='flex flex-col items-center gap-3'>
         <img
           className='rounded-full object-cover'
-          src='/sample.jpg'
+          src={user.avatar}
           width={300}
           alt='icon'
         />

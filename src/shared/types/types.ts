@@ -13,4 +13,19 @@ export type SelectorOption = {
   title?: string;
 };
 
+export type User = {
+  chat_id: string;
+  first_name: string;
+  username: string;
+  avatar?: string;
+};
+
+export type StorageState = {
+  user: User | null;
+  guide: boolean;
+  setUser: (user: User) => void;
+  setGuide: (guide: boolean) => void;
+};
+
+
 

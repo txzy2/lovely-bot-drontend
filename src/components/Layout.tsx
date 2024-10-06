@@ -26,7 +26,8 @@ const Layout: React.FC = () => {
     setUser({
       chat_id: user?.chat_id || '123',
       first_name: user?.first_name || 'kamaeff',
-      username: user?.username || 'kamaeff'
+      username: user?.username || 'kamaeff',
+      avatar: user?.photo_url || 'https://picsum.photos/200/300',
     });
 
     return () => clearTimeout(timeout);
