@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Search, Trophy, UserRound } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { Hover, LeftToRight } from '@/shared/animations';
 import useStorage from '@/store/storage';
@@ -13,11 +13,26 @@ interface SelectorOption {
 }
 
 const Selector: React.FC = () => {
-  const [selector, setSelector] = useState<'search' | 'top' | 'user'>('search');
-
+  const location = useLocation(); // Получаем текущий маршрут
   const { user } = useStorage();
 
-  console.log(user);
+  const [selector, setSelector] = useState<'search' | 'top' | 'user'>('search');
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/top':
+        setSelector('top');
+        break;
+      case '/':
+        setSelector('search');
+        break;
+      case user && user.chat_id ? `/profile/${user.chat_id}` : '/':
+        setSelector('user');
+        break;
+      default:
+        setSelector('search');
+    }
+  }, [location.pathname, user]);
 
   const selectorOptions = useMemo(
     (): SelectorOption[] => [
