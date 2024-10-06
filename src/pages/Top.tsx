@@ -13,8 +13,8 @@ const Top: React.FC = () => {
   };
 
   return (
-    <FadeIn className="h-[70vh] flex flex-col items-center p-6">
-      <div className="bg-white shadow-lg rounded-xl w-full max-w-3xl p-6">
+    <FadeIn className="h-[75vh] flex bg-white flex-col items-center p-6 shadow-lg rounded-xl">
+      <div className="  w-full max-w-3xl p-6">
         {
           selectedGender === 'Парни' ? (
             <h2 className="text-[30px] text-black font-bold text-center">👨Парни</h2>
@@ -68,7 +68,7 @@ const Top: React.FC = () => {
           </table>
         </div>
 
-        <div className="text-black mt-2 text-center">
+        <div className="text-black mt-4 text-center">
           <div>Твоё место в рейтинге: <span className="font-bold">{Math.floor(Math.random() * 1000)}</span></div>
         </div>
       </div>
