@@ -4,11 +4,14 @@ import React from 'react';
 
 
 import UpToStart from '@/shared/animations/UpToStart';
+import useStorage from '@/store/storage';
 
 const Main: React.FC = () => {
   const [scopeClose, animateClose] = useAnimate();
   const [scopeStar, animateStar] = useAnimate();
   const [scopeHeart, animateHeart] = useAnimate();
+
+  const { user } = useStorage()
 
   const handleTap = (scope: any, animate: any) => {
     animate(scope.current, {
@@ -64,6 +67,8 @@ const Main: React.FC = () => {
             >
               <img src='/heart.png' width={40} alt='heart' />
             </UpToStart>
+
+            <div className="">{user?.chat_id}</div>
           </div>
         </div>
       </div>
