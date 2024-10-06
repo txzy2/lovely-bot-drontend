@@ -8,7 +8,7 @@ import { Loader, Selector } from '@/shared/ui';
 import useStorage from '@/store/storage';
 
 const Layout: React.FC = () => {
-  const { tg, user } = UseTg();
+  const { tg, user, getUserProfilePhoto } = UseTg();
   const { setUser, guide, setGuide } = useStorage();
   const navigate = useNavigate()
 
@@ -27,11 +27,11 @@ const Layout: React.FC = () => {
       chat_id: user?.chat_id || '123',
       first_name: user?.first_name || 'kamaeff',
       username: user?.username || 'kamaeff',
-      avatar: user?.photo_url || 'https://picsum.photos/200/300',
+      avatar: getUserProfilePhoto() || 'https://picsum.photos/200/300',
     });
 
     return () => clearTimeout(timeout);
-  }, [tg, user, setUser]);
+  }, [tg, user, setUser, getUserProfilePhoto]);
 
   const goToGuide = () => {
     navigate('/guide');
