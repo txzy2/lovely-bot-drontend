@@ -1,5 +1,5 @@
-import React, {ReactNode} from 'react';
-import {motion} from 'framer-motion';
+import React, { ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 /**
  * The FadeIn component fades in an element with the specified delay.
@@ -17,12 +17,12 @@ interface FadeInProps {
   delay?: number;
 }
 
-const FadeIn: React.FC<FadeInProps> = ({children, className, delay = 0.5}) => {
+const FadeIn: React.FC<FadeInProps> = ({ children, className, delay = 0.5 }) => {
   return (
     <motion.div
       className={className}
-      initial={{opacity: 0, scale: 0.5}}
-      animate={{opacity: 1, scale: 1}}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{
         duration: 1.5,
         delay,

@@ -1,8 +1,16 @@
 import React, { useMemo, useState } from 'react';
-import { Hover, LeftToRight } from '@/shared/animations';
 import { Search, Trophy, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+import { Hover, LeftToRight } from '@/shared/animations';
 import useStorage from '@/store/storage';
+
+interface SelectorOption {
+  name: 'top' | 'search' | 'user';
+  icon: JSX.Element;
+  delay: number;
+  link: string;
+}
 
 const Selector: React.FC = () => {
   const [selector, setSelector] = useState<'search' | 'top' | 'user'>('search');
@@ -12,7 +20,7 @@ const Selector: React.FC = () => {
   console.log(user);
 
   const selectorOptions = useMemo(
-    () => [
+    (): SelectorOption[] => [
       {
         name: 'top',
         icon: <Trophy size={35} color='#1c1c1c' />,
@@ -41,7 +49,7 @@ const Selector: React.FC = () => {
 
   return (
     <div className='h-[10%] w-[95%] absolute bottom-5 flex items-center justify-between m-auto'>
-      {selectorOptions.map(({ name, icon, delay, link }) => (
+      {selectorOptions.map(({ name, icon, delay, link }: SelectorOption) => (
         <LeftToRight key={name} delay={delay}>
           <Hover>
             <Link

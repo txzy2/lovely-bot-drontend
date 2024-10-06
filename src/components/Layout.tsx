@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Header } from '@/components';
-import { Loader, Selector } from '@/shared/ui';
 import { FadeIn } from '@/shared/animations';
 import { UseTg } from '@/shared/hooks/useTg';
+import { Loader, Selector } from '@/shared/ui';
 import useStorage from '@/store/storage';
 
 const Layout: React.FC = () => {
@@ -21,9 +21,9 @@ const Layout: React.FC = () => {
     tg.expand();
 
     setUser({
-      chat_id: user?.chat_id || '12345',
-      first_name: user?.first_name || 'kamaeff',
-      username: user?.username || 'kamaeff'
+      chat_id: user?.chat_id || '',
+      first_name: user?.first_name || '',
+      username: user?.username || ''
     });
 
     return () => clearTimeout(timeout);

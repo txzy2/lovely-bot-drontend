@@ -1,5 +1,5 @@
 import React from 'react';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 /**
  * The LeftToRight component animates an element from left to right.
@@ -33,8 +33,8 @@ const LeftToRight: React.FC<LeftToRightProps> = ({
   return (
     <motion.div
       className={className}
-      initial={{opacity: 0, x: startPosition}}
-      animate={{opacity: 1, x: endPosition}}
+      initial={{ opacity: 0, x: startPosition }}
+      animate={{ opacity: 1, x: endPosition }}
       transition={{
         duration: 0.8,
         delay,

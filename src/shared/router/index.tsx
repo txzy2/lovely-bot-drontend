@@ -2,9 +2,10 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import App from '@/App';
 import Layout from '@/components/Layout';
+import NotFound from '@/pages/404';
 import About from '@/pages/About';
 import Profile from '@/pages/profile/[id]';
-import NotFound from '@/pages/404';
+import Top from '@/pages/Top';
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: 'profile/:id',
         element: <Profile />
+      },
+      {
+        path: 'top',
+        element: <Top />
       },
       {
         path: '*',

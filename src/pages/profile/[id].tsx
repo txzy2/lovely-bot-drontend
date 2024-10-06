@@ -1,19 +1,14 @@
+import { Heart, Star } from 'lucide-react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
 import { LeftToRight, UpToStart } from '@/shared/animations';
 import useStorage from '@/store/storage';
-import { Heart, Star } from 'lucide-react';
-import React, { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 
 const Profile: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { user } = useStorage();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user || user.chat_id !== id) {
-      navigate('/');
-    }
-  }, [user, id, navigate]);
 
   if (!user || user.chat_id !== id) {
     return <div>Пользователь не найден или доступ ограничен</div>;
@@ -33,11 +28,13 @@ const Profile: React.FC = () => {
       <LeftToRight delay={1}>
         <div className='flex items-center gap-1'>
           <Star size={35} color='orange' strokeWidth={2} />
+
           <span className='text-[40px] font-bold'>{user.first_name}, 23</span>
         </div>
 
         <div className='flex items-center gap-1'>
           <Heart />
+
           <span>1000</span>
         </div>
       </LeftToRight>

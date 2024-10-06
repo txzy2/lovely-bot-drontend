@@ -1,6 +1,7 @@
-import React from 'react';
-import { Menu, Sparkles, Star, X } from 'lucide-react';
 import { useAnimate } from 'framer-motion';
+import { Menu, Sparkles, Star, X } from 'lucide-react';
+import React from 'react';
+
 
 import UpToStart from '@/shared/animations/UpToStart';
 
@@ -22,6 +23,7 @@ const Main: React.FC = () => {
         <div className='w-[90%] absolute top-5 left-5 flex items-center justify-between'>
           <div className='flex items-center gap-1 text-[30px]'>
             <Star size={25} color='orange' />
+
             <span className='font-bold'>Anton, 23</span>
           </div>
 

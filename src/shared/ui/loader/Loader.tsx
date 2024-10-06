@@ -1,5 +1,5 @@
-import React from 'react';
 import { Loader } from 'lucide-react';
+import React from 'react';
 
 import { FadeIn } from '@/shared/animations';
 
@@ -20,11 +20,10 @@ const LoaderComponent: React.FC<LoaderProps> = props => {
       <Loader className='animate-spin' size={props.iconSize || 16} />
 
       <div className='flex items-center gap-1'>
+
         {props.title.need && (
           <FadeIn delay={1}>
-            <h3
-              className={`text-[${props.title.size ? props.title.size : 16}px] `}
-            >
+            <h3 className={`text-[${props.title.size ? props.title.size : 16}px] `}>
               {props.title.text || ''}
             </h3>
           </FadeIn>
@@ -34,11 +33,10 @@ const LoaderComponent: React.FC<LoaderProps> = props => {
           <FadeIn delay={2}>
             <a className='flex items-center' href='#'>
               <img src='/logo.png' alt='logo' width={100} />
-
-              {/* <img src='heart.gif' width={40} alt='' /> */}
             </a>
           </FadeIn>
         )}
+
       </div>
     </div>
   );

@@ -1,6 +1,16 @@
 import React, { forwardRef } from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
+/**
+ * The FadeIn component fades in an element with the specified delay.
+ *
+ * @param {object} props - The component properties.
+ * @param {React.ReactNode} props.children - The child elements to be wrapped with the animation.
+ * @param {string} [props.className] - The class name to be applied to the element.
+ *
+ * @returns {JSX.Element} An animated element wrapping the child elements.
+ */
+
 interface UpToStartProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
   delay?: number;
