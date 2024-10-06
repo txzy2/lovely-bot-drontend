@@ -13,7 +13,7 @@ const Top: React.FC = () => {
   };
 
   return (
-    <FadeIn className="h-[80vh] flex flex-col items-center  p-6">
+    <FadeIn className="h-[70vh] flex flex-col items-center p-6">
       <div className="bg-white shadow-lg rounded-xl w-full max-w-3xl p-6">
         {
           selectedGender === 'Парни' ? (

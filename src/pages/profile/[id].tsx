@@ -20,8 +20,7 @@ const Profile: React.FC = () => {
         <img
           className='rounded-full object-cover'
           src='/sample.jpg'
-          width={300}
-          alt='icon'
+          width={300} alt='icon'
         />
       </UpToStart>
 
