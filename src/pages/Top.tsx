@@ -23,7 +23,7 @@ const Top: React.FC = () => {
           )
         }
 
-        <div className="w-full h-[70%] overflow-y-auto">
+        <div className="w-full h-[60%] overflow-y-auto">
           <table className="w-full text-left">
             <thead className="sticky top-0 bg-white">
               <tr className="border-b border-gray-200 text-gray-700 text-lg font-semibold">
