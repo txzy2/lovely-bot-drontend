@@ -21,9 +21,9 @@ const Layout: React.FC = () => {
     tg.expand();
 
     setUser({
-      chat_id: user?.chat_id || '',
-      first_name: user?.first_name || '',
-      username: user?.username || ''
+      chat_id: user?.chat_id || '123',
+      first_name: user?.first_name || 'kamaeff',
+      username: user?.username || 'kamaeff'
     });
 
     return () => clearTimeout(timeout);
