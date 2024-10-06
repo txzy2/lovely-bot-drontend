@@ -24,7 +24,7 @@ const Top: React.FC = () => {
         }
 
 
-        <div className="w-full h-[80%] overflow-y-auto">
+        <div className="w-full h-[70%] overflow-y-auto">
           <table className="w-full text-left">
             <thead className="sticky top-0 bg-white">
               <tr className="border-b border-gray-200 text-gray-700 text-lg font-semibold">
@@ -50,7 +50,7 @@ const Top: React.FC = () => {
               {selectedGender === 'Парни' ? (
                 mockTopManData.map((item: TopDTO) => (<tr key={item.id} className="text-center text-gray-800 font-bold border-b border-gray-200 hover:bg-gray-100 transition-all">
                   <td className="py-3">{item.rank}</td>
-                  <td className="py-3">{item.name}</td>
+                  <td className="py-3 text-start">{item.name}</td>
                   <td className="py-3">{item.score}</td>
                 </tr>
                 ))
