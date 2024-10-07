@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Hover, LeftToRight } from '@/shared/animations';
 import { CircleHelp, Search, Trophy, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+import { Hover, LeftToRight } from '@/shared/animations';
 import useStorage from '@/store/storage';
 import { SelectorOption } from '@/shared/types/types';
 
